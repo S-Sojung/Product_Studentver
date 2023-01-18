@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="shop.mtcoding.orange3.model.StudentRepository">
+    <!-- select id="findAll" // resultType 으로 매핑 -->
+   <select id="findAll" resultType="shop.mtcoding.orange3.model.Student">
+      select * from student order by id desc
+   </select>
+   
+   <select id="findOne" resultType="shop.mtcoding.orange3.model.Student">
+      select * from student where id = #{id}
+   </select>   
+
+   <insert id="insert" >
+      insert into student(name, grade, email) values(#{name},#{grade},#{email})
+   </insert>   
+   <delete id="delete" >
+      delete from student where id = #{id}
+   </delete>   
+   <update id="update" >
+      update student set grade = #{grade}, email = #{email}  where id=#{id}
+   </update>   
+</mapper>
